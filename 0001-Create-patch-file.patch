@@ -1,0 +1,74 @@
+From 74940c36f1478b47fb1b2aa8167e2128c094d2ef Mon Sep 17 00:00:00 2001
+From: itsmemohit <mohitdangwal016.md@gmail.com>
+Date: Fri, 24 Jul 2020 14:33:30 +0000
+Subject: [PATCH] create patch file
+
+---
+ __pycache__/client3.cpython-38.pyc | Bin 0 -> 1062 bytes
+ client3.py                         |   4 ++--
+ client_test.py                     |   5 ++++-
+ 3 files changed, 6 insertions(+), 3 deletions(-)
+ create mode 100644 __pycache__/client3.cpython-38.pyc
+
+diff --git a/__pycache__/client3.cpython-38.pyc b/__pycache__/client3.cpython-38.pyc
+new file mode 100644
+index 0000000000000000000000000000000000000000..cbf304422f0aa35713927be95db0c04bf709bd45
+GIT binary patch
+literal 1062
+zcmYjQOK%e~5Vm){*-c-RM;l5x7^Dg!A;RMTs(1;CxBzNFJz#-WPCRM1-K<lugG5MA
+z;fJJ0t_bmCeC5<TCr->dZH2AzJUkwM`;B*detw4Fh<{#5@6`$UT{-^`jFD$3<u6<m
+zQ8XuldL4+s>rjMVGr?3KA{C07Vk-JZM67BmMx8)iCHsN-0W&ZQwJ{yj4f08eIS427
+zK=&3V=OCIa0-LZSazu~l<b0*Y1-O8DH^oJW;o_KnWa5%o63e0imsK4u!4fP(qsx}b
+zm{M|JF**YYG@vmKPGYYWeNURR$B3Q09bVhDw!hwL<+>yDU0vGshj$*{X&nr}e0iFw
+z$6pV#Ka`LT%Grp}Vkj?A%4fKYkb@O+NNr^WD@27Wc>iJGeRk%DqhJ&^h>BLpAsf-k
+z8?i1!G_~P6-!xhcI>2R~bKT{37kB}nK=IEqA3({i<~vY;krtD<l2-P0R#@($((2B>
+zi>>ab?M%6-Z?X<deOc}w2MDoAUDVCBw9Uvx2Lo-vRAE=g1L-usj=59QRA2X<m|0YR
+zAGCIL4_anW;N7ha_>5=O8>wK>f3Brbt-XFP?IHFY(z~rro<U*n-|l~Lb30%+5ap&v
+ziKR;atipsY;+&&q9%G#f#p$T*N<6U%8Y42Is{{$6!|VJNSdJf`>53i?Ih9-%>cnny
+zkGC0!_+<0cX#0)nGKW=Ng2>)gm73_49sx58ekV<PGAq(_cw?&~N%6IkOUrK}P3vpr
+zEsh*{?XN(qIZS*d%xkWQg@MWQtbN-6KA_Ty+SGT<W<3yWuhfO88N{r6BHG%1`R;?G
+zZ#@rZ*B7z}Y3f*p9dZ%o?tr7Ii?Da96!B^07%S^O6t33QrYEgq2BdN|-`dht<oO1h
+x>Sr|-@xH14Z4~xDLaH8{DJzerU3{{Hq4Fv&3H38%Aq$dv5+~sz<-UK*!9Qo@4QBuV
+
+literal 0
+HcmV?d00001
+
+diff --git a/client3.py b/client3.py
+index f1771c3..a7d9ff3 100644
+--- a/client3.py
++++ b/client3.py
+@@ -35,14 +35,14 @@ def getDataPoint(quote):
+ 	stock = quote['stock']
+ 	bid_price = float(quote['top_bid']['price'])
+ 	ask_price = float(quote['top_ask']['price'])
+-	price = bid_price
++	price =  (bid_price+ask_price) / 2
+ 	return stock, bid_price, ask_price, price
+ 
+ def getRatio(price_a, price_b):
+ 	""" Get ratio of price_a and price_b """
+ 	""" ------------- Update this function ------------- """
+ 	""" Also create some unit tests for this function in client_test.py """
+-	return 1
++	return price_a/price_b
+ 
+ # Main
+ if __name__ == "__main__":
+diff --git a/client_test.py b/client_test.py
+index af2bf26..8271210 100644
+--- a/client_test.py
++++ b/client_test.py
+@@ -15,7 +15,10 @@ class ClientTest(unittest.TestCase):
+       {'top_ask': {'price': 121.68, 'size': 4}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'DEF'}
+     ]
+     """ ------------ Add the assertion below ------------ """
+-
++  for quote in quotes:
++    quotes=[
++      {t}
++    ]
+ 
+   """ ------------ Add more unit tests ------------ """
+ 
+-- 
+2.17.1
